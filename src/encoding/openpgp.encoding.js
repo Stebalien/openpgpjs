@@ -46,7 +46,11 @@ function openpgp_encoding_base64_decode(message) {
 function openpgp_encoding_html_encode(message) {
 	if (message == null)
 		return "";
-	return $('<div/>').text(message).html();
+
+  return document.createElement('div')
+          .appendChild(document.createTextNode(message))
+          .parentNode
+          .innerHTML;
 }
 
 /**
